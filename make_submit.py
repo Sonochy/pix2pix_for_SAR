@@ -12,13 +12,14 @@ import json
 import argparse
 import time
 import cv2
+from tqdm import tqdm
 
 def make_json(annotations_dir, categories):
     count = 0
     annotation_files = os.listdir(annotations_dir)
     json_data = {}
     s = time.clock()
-    for annotation_file in annotation_files:
+    for annotation_file in tqdm(annotation_files):
         print(annotation_file)
         name = annotation_file.split('.')[0]
         json_data[name] = {}
